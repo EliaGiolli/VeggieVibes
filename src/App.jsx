@@ -1,33 +1,29 @@
-import React, {useState, createContext, useContext} from "react"
+import React, {useEffect, useState} from "react"
+import { ThemeProvider } from "./contexts/theme"
 import ChangeBackground from "./components/ChangeBackground"
 import Search4Recipies from "./components/Search4Recipies"
 
-// Creare il contesto per il tema
-const ThemeContext = createContext();
-
-// Componente Provider del contesto del tema
-const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light'); // 'light' o 'dark'
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
-
 function App() {
+  const [themeMode, setThemeMode] = useState("light")  
+
+  const darkTheme = () => {
+    setThemeMode("dark")
+  }
   
- 
+  const lightTheme = () => {
+    setThemeMode("light")
+  }
+  
+  useEffect(() => {
+    document.querySelector('html').classList.remove('dark', 'light');
+    document.querySelector('html').classList.add(themeMode);
+  }, [themeMode])
+  
   return (
-    <ThemeProvider>
+    <ThemeProvider value={{ themeMode, darkTheme, lightTheme }}>
       <ChangeBackground />
       <Search4Recipies />
-    </ ThemeProvider>
+    </ThemeProvider>
   )
 }
 

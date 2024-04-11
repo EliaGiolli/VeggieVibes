@@ -1,14 +1,26 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../App'; 
-import { CgDarkMode } from "react-icons/cg";
+import React from 'react';
+import { useTheme } from '../contexts/theme';  
+
 
 function ChangeBackground() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { themeMode, lightTheme, darkTheme } = useTheme();
+  const onChangeBtn = (e)=>{
+    const darkModeStatus = e.currentTarget.checked;
+    if(darkModeStatus){
+      darkTheme();
+    }else{
+      lightTheme();
+    }
+  }
   return (
     <section className='w-full h-7 flex justify-end text-center items-center p-7 mt-4 border-b-4 border-red-500'>
-      <button className='bg-yellow-500 p-5 border roundend-full' onClick={toggleTheme}> 
-      <CgDarkMode />
-      </button>
+      <input 
+        type = 'checkbox'
+        value=""
+        className = 'w-7 h-7'
+        onChange = {onChangeBtn}
+        checked = {themeMode === 'dark'}
+      />
     </section>
   )
 }
