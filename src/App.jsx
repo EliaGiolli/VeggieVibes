@@ -7,11 +7,13 @@ function App() {
   const [themeMode, setThemeMode] = useState("light")  
 
   const darkTheme = () => {
-    setThemeMode("dark")
+    setThemeMode("dark");
+    console.log(themeMode)
   }
   
   const lightTheme = () => {
     setThemeMode("light")
+    console.log(themeMode)
   }
   
   useEffect(() => {

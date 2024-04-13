@@ -13,7 +13,7 @@ function ChangeBackground() {
     }
   }
   return (
-    <section className='w-full h-7 flex justify-end text-center items-center p-7 mt-4 border-b-4 border-red-500'>
+    <section className='w-full h-7 flex justify-end text-center items-center bg-lime-300 p-7 mt-4 border-b-4'>
       <input 
         type = 'checkbox'
         value=""
