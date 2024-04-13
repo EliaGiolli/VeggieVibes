@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react"
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from "./contexts/theme"
 import ChangeBackground from "./pages/ChangeBackground"
 import Search4Recipies from "./pages/Search4Recipies"
@@ -24,12 +23,8 @@ function App() {
   
   return (
     <ThemeProvider value={{ themeMode, darkTheme, lightTheme }}>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={ChangeBackground} />
-          <Route path="/" exact component={Search4Recipies} />
-        </Switch>
-      </Router>
+      <ChangeBackground />
+      <Search4Recipies />
     </ThemeProvider>
   )
 }
