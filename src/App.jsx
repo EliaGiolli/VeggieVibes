@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import { ThemeProvider } from "./contexts/theme"
-import ChangeBackground from "./pages/ChangeBackground"
-import Search4Recipies from "./pages/Search4Recipies"
+import ChangeBackground from "./components/ChangeBackground"
+import Search4Recipies from "./components/Search4Recipies"
 
 function App() {
   const [themeMode, setThemeMode] = useState("light")  

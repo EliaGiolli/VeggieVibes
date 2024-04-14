@@ -1,26 +1,11 @@
 import React from 'react';
-import { useTheme } from '../contexts/theme';  
-
+import ToggleThemeInput from './ToggleThemeInput';
 
 function ChangeBackground() {
-  const { themeMode, lightTheme, darkTheme } = useTheme();
-  const onChangeBtn = (e)=>{
-    const darkModeStatus = e.currentTarget.checked;
-    if(darkModeStatus){
-      darkTheme();
-    }else{
-      lightTheme();
-    }
-  }
+  
   return (
-    <section className='w-full h-7 flex justify-end text-center items-center bg-lime-300 p-7 mt-4 border-b-4'>
-      <input 
-        type = 'checkbox'
-        value=""
-        className = 'w-7 h-7'
-        onChange = {onChangeBtn}
-        checked = {themeMode === 'dark'}
-      />
+    <section className='w-full h-7 flex justify-end text-center items-center bg-{themeMode} p-7 mt-4 border-b-4'>
+      <ToggleThemeInput />
     </section>
   )
 }

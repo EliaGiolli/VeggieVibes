@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 
-import ChangeBackground from './pages/ChangeBackground.jsx'
-import Search4Recipies from './pages/Search4Recipies.jsx'
-import RecipiesCards from './pages/RecipiesCards.jsx'
+import ChangeBackground from './components/ChangeBackground.jsx'
+import Search4Recipies from './components/Search4Recipies.jsx'
+import RecipiesCards from './components/RecipiesCards.jsx'
 
 import './index.css'
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Search4Recipies />,
   },
   {
-    path: "/recipiesCards",
+    path: "/recipiesCards/:id",
     element: <RecipiesCards />,
   },
   {
