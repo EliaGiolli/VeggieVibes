@@ -1,3 +1,160 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Search4Recipies Styles */
+.search-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ecfccb;
+}
+
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-height: 500px;
+    padding: 1rem;
+    margin: 1.25rem 0;
+    background-color: #bef264;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-wrapper h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #15803d;
+}
+
+.search-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.75rem;
+}
+
+.search-input {
+    width: 75%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    border: 1px solid #ddd;
+}
+
+.recipes-grid {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.recipe-card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.recipe-link h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding: 0.75rem 0;
+}
+
+/* RecipeDetails Styles */
+.recipe-details {
+    background-color: #ecfccb;
+    padding: 2rem;
+}
+
+.recipe-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ingredients, .instructions {
+    margin-bottom: 2rem;
+}
+
+.ingredients h3, .instructions h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ingredients ul, .instructions ol {
+    padding-left: 1.5rem;
+}
+
+.ingredients li, .instructions li {
+    margin-bottom: 0.5rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .search-wrapper {
+        width: 90%;
+    }
+    
+    .search-input-container {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        margin-bottom: 1.25rem;
+    }
+    
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .recipes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .recipes-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

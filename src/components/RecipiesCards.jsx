@@ -23,10 +23,10 @@ function RecipeDetails() {
   }
 
   return (
-    <div className="bg-lime-200">
+    <div className="recipe-details">
       <h2>{recipe.title}</h2>
       <img src={recipe.image} alt={recipe.title} />
-      <div>
+      <div className="ingredients">
         <h3>Ingredients:</h3>
         <ul>
           {recipe.extendedIngredients.map(ingredient => (
@@ -34,7 +34,7 @@ function RecipeDetails() {
           ))}
         </ul>
       </div>
-      <div>
+      <div className="instructions">
         <h3>Instructions:</h3>
         <ol>
           {recipe.analyzedInstructions[0].steps.map(step => (
