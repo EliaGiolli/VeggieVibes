@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from 'react'  
 import { fetchRecipe } from '../Api/Api';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './Search4Recipies.css'
+import Navbar from './Navbar';
 
 function Search4Recipies() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -20,29 +22,32 @@ function Search4Recipies() {
     }, [searchTerm]);
     
   return (
-    <main className="search-container">
-      <div className="search-wrapper">
-        <h1>Find your next veg meal</h1>
-        <div className="search-input-container">
-          <input 
-            type="text" 
-            className="search-input"
-            onChange={e => setSearchTerm(e.target.value)}
-            placeholder="Search for vegetarian recipes"
-          />
+    <>
+      <Navbar />
+      <main className="search-container">
+        <div className="search-wrapper">
+          <h1>Find your next veg meal</h1>
+          <div className="search-input-container">
+            <input 
+              type="text" 
+              className="search-input"
+              onChange={e => setSearchTerm(e.target.value)}
+              placeholder="Search for vegetarian recipes"
+            />
+          </div>
+          <div className="recipes-grid">
+            {recipes.map(recipe => (
+              <div key={recipe.id} className="recipe-card">
+                <Link to={'/recipiesCards'} className="recipe-link">
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="recipes-grid">
-          {recipes.map(recipe => (
-            <div key={recipe.id} className="recipe-card">
-              <Link to={'/recipiesCards'} className="recipe-link">
-                <img src={recipe.image} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
 
