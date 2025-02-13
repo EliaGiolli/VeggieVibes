@@ -3,6 +3,7 @@ import { Route, Routes, Navigate} from "react-router-dom"
 import LoginPage from "./Pages/LoginPage"
 import Search4Recipies from "./components/Search4Recipies"
 import ErrorPage from './Pages/ErrorPage'
+import Navbar from "./components/Navbar"
 import RecipeDetails from './components/RecipiesCards'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
    <>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
+        <Route path='/Navbar' element={<Navbar />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/Search4Recipies" element={<Search4Recipies />} />
