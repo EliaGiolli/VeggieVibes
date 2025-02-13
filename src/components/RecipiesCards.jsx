@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getRecipeDetails } from '../Api/Api';
+import './RecipiesCards.css'
 import Navbar from './Navbar';
 
 function RecipeDetails() {

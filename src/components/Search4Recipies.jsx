@@ -1,10 +1,12 @@
 import React,{useEffect, useState} from 'react'  
 import { fetchRecipe } from '../Api/Api';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Search4Recipies.css'
 import Navbar from './Navbar';
 
 function Search4Recipies() {
+
+
     const [searchTerm, setSearchTerm] = useState('');
     const [recipes, setRecipes] = useState([]);
 
@@ -15,6 +17,7 @@ function Search4Recipies() {
       fetchRecipe(searchTerm)
         .then(data => {
           setRecipes(data.results);
+          console.log("data retrieved", data.results);
         })
         .catch(error => {
           console.error('Error fetching recipes:', error);
@@ -38,7 +41,7 @@ function Search4Recipies() {
           <div className="recipes-grid">
             {recipes.map(recipe => (
               <div key={recipe.id} className="recipe-card">
-                <Link to={'/recipiesCards'} className="recipe-link">
+                <Link to={`/RecipiesCards/${recipe.id}`} className="recipe-link">
                   <img src={recipe.image} alt={recipe.title} />
                   <h3>{recipe.title}</h3>
                 </Link>
