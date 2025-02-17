@@ -62,13 +62,23 @@
     color: #15803d;
 }
 
+/* TOGGLE THEME CLASSES */
+.light {
+    background-color: white; 
+    color: black; 
+}
+
+.dark {
+    background-color: black; 
+    color: white; 
+}
+
 
 /* RESPONSIVE HAMBURGER MENU  */
 
 
 .hamburger-menu {
     cursor: pointer;
-    margin-left: auto;
     display: none;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Buttons from '../components/Buttons';
+import Buttons from '../components/buttons/Buttons';
 import './About.css'; 
 
 function About() {

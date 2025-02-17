@@ -3,16 +3,26 @@ import { FaSearch } from "react-icons/fa";
 import { FaBars } from "react-icons/fa"; 
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import useTheme  from '../contexts/theme';
+import Buttons from './buttons/Buttons';
 
 function Navbar() {
+
+  //Responsiveness 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen); 
   };
 
+  //light/dark theme
+  const {themeMode, darkTheme, lightTheme} = useTheme();
+  const handleThemeMode = () => {
+    themeMode === 'light' ? darkTheme() : lightTheme();
+  }
+
   return (
-    <nav className='nav-container'>
+    <nav className={`nav-container ${themeMode}`}>
       <img src="/VeggieVibesLogo.png" alt="VeggieVibes logo" className='logo' />
       <div className='nav-links'>
         <ul>
@@ -33,6 +43,11 @@ function Navbar() {
       </div>
       <section className='hamburger-menu' onClick={toggleDropdown}>
         <FaBars className='hamburger-icon' /> 
+      </section>
+      <section>
+        <Buttons onClick={handleThemeMode}>
+          Switch to {themeMode === 'light' ? 'dark' : 'light'} mode
+        </Buttons>
       </section>
       {isDropdownOpen ? (
         <div className='dropdown'>
